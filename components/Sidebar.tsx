@@ -8,6 +8,7 @@ import { getAllNotes } from "@/lib/redis";
 import SidebarNoteList from "./SidebarNoteList";
 import EditButton from "@/components/EditButton";
 import NoteListSkeleton from "@/components/NoteListSkeleton";
+import SideSearchField from '@/components/SideSearchField';
 import { Note } from "./types";
 
 export default async function Sidebar() {
@@ -22,7 +23,7 @@ export default async function Sidebar() {
           </section>
         </Link>
         <section className="sidebar-menu" role="menubar">
-          {/* SideSearchField */}
+          <SideSearchField />
           <EditButton noteId={null}>New</EditButton>
         </section>
         <nav>
