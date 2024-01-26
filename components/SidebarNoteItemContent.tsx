@@ -30,6 +30,7 @@ export default function SidebarNoteContent({
   const prevTitleRef = useRef(title);
 
   useEffect(() => {
+    // 标题不一样则增加flash
     if (title !== prevTitleRef.current) {
       prevTitleRef.current = title;
       itemRef.current && itemRef.current.classList.add("flash");
@@ -40,6 +41,7 @@ export default function SidebarNoteContent({
     <div
       ref={itemRef}
       onAnimationEnd={() => {
+        // 移除类名
         itemRef.current?.classList.remove("flash");
       }}
       className={["sidebar-note-list-item", isExpanded ? "note-expanded" : ""].join(" ")}

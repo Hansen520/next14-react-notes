@@ -3,8 +3,6 @@
  * @Description: description
  */
 import SidebarNoteListFilter from "@/components/SidebarNoteListFilter";
-import dayjs from "dayjs";
-import SidebarNoteItem from "@/components/SidebarNoteItem";
 import SidebarNoteItemHeader from '@/components/SidebarNoteItemHeader';
 import { getAllNotes } from "@/lib/redis";
 import { Note } from "./types";
