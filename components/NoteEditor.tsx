@@ -53,7 +53,10 @@ export default function NoteEditor({
           <SaveButton formAction={saveFormAction} />
           <DeleteButton isDraft={isDraft} formAction={delFormAction} />
         </div>
-        <div className="note-editor-menu">{saveState?.message}</div>
+        <div className="note-editor-menu">
+            {saveState?.message}
+            {saveState?.errors && saveState.errors[0].message}
+        </div>
         <label className="offscreen" htmlFor="note-title-input">
           Enter a title for your note
         </label>

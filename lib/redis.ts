@@ -6,8 +6,6 @@ import Redis from 'ioredis';
 
 const redis = new Redis("redis://:325600@118.195.176.186:29002/1");
 
-console.log(redis, 8);
-
 const initialData = {
   "1702459181837": '{"title":"AI sunt aut","content":"AI quia et suscipit suscipit recusandae","updateTime":"2025-12-13T09:19:48.837Z"}',
   "1702459182837": '{"title":"AI qui est","content":"AI est rerum tempore vitae sequi sint","updateTime":"2023-12-13T09:19:48.837Z"}',
