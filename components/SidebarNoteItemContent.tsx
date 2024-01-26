@@ -1,6 +1,6 @@
 /*
  * @Date: 2024-01-25 13:51:46
- * @Description: 客户端组件
+ * @Description: 客户端组件， 笔记列表的每一项item的内容
  */
 "use client";
 
