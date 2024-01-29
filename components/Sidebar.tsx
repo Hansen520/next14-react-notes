@@ -4,15 +4,17 @@
  */
 import React, { Suspense } from "react";
 import Link from "next/link";
-import { getAllNotes } from "@/lib/redis";
 import SidebarNoteList from "./SidebarNoteList";
 import EditButton from "@/components/EditButton";
 import NoteListSkeleton from "@/components/NoteListSkeleton";
-import SideSearchField from '@/components/SideSearchField';
-import { Note } from "./types";
+import SideSearchField from "@/components/SidebarSearchField";
+import { useTranslations, NextIntlClientProvider, useMessages } from "next-intl";
 
-export default async function Sidebar() {
-  const notes = await getAllNotes();
+
+export default function Sidebar() {
+  const t = useTranslations("Basic");
+  const messages = useMessages();
+
   return (
     <>
       <section className="col sidebar">
@@ -23,8 +25,15 @@ export default async function Sidebar() {
           </section>
         </Link>
         <section className="sidebar-menu" role="menubar">
-          <SideSearchField />
-          <EditButton noteId={null}>New</EditButton>
+          {/* 动态渲染国际化必须要有这个，不然会报错 */}
+          <NextIntlClientProvider
+            messages={{
+              Basic: messages.Basic,
+            }}
+          >
+            <SideSearchField />
+          </NextIntlClientProvider>
+          <EditButton noteId={null}>{t("new")}</EditButton>
         </section>
         <nav>
           {/* 骨架屏幕自己写的 */}

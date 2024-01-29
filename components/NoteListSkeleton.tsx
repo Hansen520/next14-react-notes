@@ -24,6 +24,18 @@ export default function NoteListSkeleton() {
               style={{height: '5em'}}
             />
           </li>
+          <li className="v-stack">
+            <div
+              className="sidebar-note-list-item skeleton"
+              style={{height: '5em'}}
+            />
+          </li>
+          <li className="v-stack">
+            <div
+              className="sidebar-note-list-item skeleton"
+              style={{height: '5em'}}
+            />
+          </li>
         </ul>
       </div>
     );

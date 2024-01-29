@@ -3,6 +3,7 @@
  * @Description: description
  */
 import { useFormStatus } from 'react-dom'
+import {useTranslations} from 'next-intl';
 
 export default function EditButton({ formAction }: { formAction: any }) {
   const { pending } = useFormStatus()

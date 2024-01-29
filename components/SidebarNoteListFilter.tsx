@@ -7,11 +7,11 @@
 // import SidebarNoteItem from "@/components/SidebarNoteItem";
 import { useSearchParams } from "next/navigation";
 import SidebarNoteItemContent from '@/components/SidebarNoteItemContent';
+import {useTranslations} from 'next-intl';
 
 export default function SidebarNoteListFilter({ notes }: { notes: any}) {
   const searchParams = useSearchParams();
   const searchText = searchParams.get("q");
-
   return (
     <ul className="notes-list">
       {notes.map((noteItem: { noteId: string, note: any, header: any }) => {

@@ -7,9 +7,10 @@
 import { useState } from "react";
 import NotePreview from "@/components/NotePreview";
 import { useFormStatus, useFormState } from "react-dom";
-import { deleteNote, saveNote } from "../app/action";
+import { deleteNote, saveNote } from "../app/[locale]/action";
 import SaveButton from '@/components/SaveButton';
 import DeleteButton from '@/components/DeleteButton';
+
 
 const initialState = {
     message: null,
@@ -25,7 +26,7 @@ export default function NoteEditor({
   initialBody: string;
 }) {
   const { pending } = useFormStatus();
-
+  
   /* 表单的应用 */
   const [saveState, saveFormAction] = useFormState(saveNote as () => any, initialState);
   const [delState, delFormAction] = useFormState(deleteNote as () => any, initialState);
@@ -34,6 +35,8 @@ export default function NoteEditor({
   const [body, setBody] = useState(initialBody);
   const isDraft = !noteId;
 
+  
+  
   return (
     <div className="note-editor">
       <form className="note-editor-form" autoComplete="off">
@@ -76,7 +79,7 @@ export default function NoteEditor({
       </form>
       <div className="note-editor-preview">
         <div className="label label--preview" role="status">
-          Preview
+          preview
         </div>
         <h1 className="note-title">{title}</h1>
         <NotePreview>{body}</NotePreview>

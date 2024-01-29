@@ -223,9 +223,10 @@ hr {
   border-radius: 100px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  padding: 6px 20px 8px;
+  padding: 6px 22px 8px;
   cursor: pointer;
   font-weight: 700;
+  white-space: nowrap;
   outline-style: none;
 }
 .edit-button--solid {

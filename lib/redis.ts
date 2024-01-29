@@ -12,8 +12,6 @@ const initialData = {
   "1702459188837": '{"title":"AI ea molestias","content":"AI et iusto sed quo iure","updateTime":"2023-12-13T09:19:48.837Z"}'
 }
 
-console.log('redis执行', 15);
-
 export async function getAllNotes() {
     const data = await redis.hgetall('notes'); // 获取所有键值对数据
     if (Object.keys(data).length === 0) {
