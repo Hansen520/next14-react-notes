@@ -38,4 +38,23 @@ export async function delNote(uuid: string) {
     return redis.hdel('notes', uuid); // 删除指定uuid的笔记
 }
 
+/* 新增用户 */
+export async function addUser(username: string, password: string) {
+    await redis.hset('users', { [username]: password});
+    return {
+        name: username,
+        username
+    }
+}
+
+export async function getUser(username: string, password: string) {
+    const passwordFromDB = await redis.hget('users', username);
+    if (!passwordFromDB) return 0;
+    if (passwordFromDB !== password) return 1;
+    return {
+        name: username,
+        username
+    }
+}
+
 export default redis;

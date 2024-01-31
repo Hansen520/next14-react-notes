@@ -5,7 +5,6 @@
 import dayjs from "dayjs";
 import NotePreview from "@/components/NotePreview";
 import EditButton from "@/components/EditButton";
-import {useTranslations} from 'next-intl';
 
 export default function Note({
   noteId,
@@ -15,7 +14,6 @@ export default function Note({
   note: { title: string; content: string; updateTime: string };
 }) {
   const { title, content, updateTime } = note;
-  const t = useTranslations('Basic');
   return (
     <div className="note">
       <div className="note-header">
@@ -24,7 +22,7 @@ export default function Note({
           <small className="note-updated-at" role="status">
             Last updated at {dayjs(updateTime).format("YYYY-MM-DD hh:mm:ss")}
           </small>
-          <EditButton noteId={noteId}>{t('edit')}</EditButton>
+          <EditButton noteId={noteId}>edit</EditButton>
         </div>
       </div>
       <NotePreview>{content}</NotePreview>

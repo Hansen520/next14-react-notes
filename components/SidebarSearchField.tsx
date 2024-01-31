@@ -6,7 +6,7 @@
 
 import { usePathname, useRouter } from "next/navigation";
 import { useTransition } from "react";
-import {useTranslations} from 'next-intl';
+// import {useTranslations} from 'next-intl';
 
 function Spinner({ active = true }) {
   return (
@@ -23,7 +23,7 @@ export default function SidebarSearchField() {
   const pathname = usePathname();
   const [isPending, startTransition] = useTransition();
   
-  const t = useTranslations('Basic');
+  // const t = useTranslations('Basic');
 
   function handleSearch(term: string) {
     const params = new URLSearchParams(window.location.search);
@@ -45,7 +45,7 @@ export default function SidebarSearchField() {
       </label>
       <input
         id="sidebar-search-input"
-        placeholder={t('search')}
+        placeholder="search"
         type="text"
         onChange={(e) => handleSearch(e.target.value)}
       />
