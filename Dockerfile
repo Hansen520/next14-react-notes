@@ -1,5 +1,5 @@
 # 1. 构建基础镜像
-FROM node:alpine AS deps
+FROM node:18-alpine AS deps
 #纯净版镜像
 
 ENV NODE_ENV=production \
