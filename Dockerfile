@@ -1,5 +1,5 @@
 # 1. 构建基础镜像
-FROM alpine:3.15 AS base
+FROM node:alpine AS deps
 #纯净版镜像
 
 ENV NODE_ENV=production \
@@ -11,7 +11,7 @@ WORKDIR $APP_PATH
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 
 # 使用apk命令安装 nodejs 和 yarn
-RUN apk add --no-cache --update yarn=1.22.17-r0
+# RUN apk add --no-cache --update yarn=1.22.17-r0
 
 # 2. 基于基础镜像安装项目依赖
 FROM base AS install
