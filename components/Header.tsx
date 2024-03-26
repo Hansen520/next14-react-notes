@@ -36,7 +36,7 @@ export default async function Header() {
   console.log(session, 35);
   return (
     <header style={{ display: "flex", justifyContent: "space-between", padding: '0 40px 0 18px', background: 'var(--gray-10)', height: '30px', borderBottom: '1px solid #e4e6eb' }}>
-      <Link href="/">微风吹皱了湖面，波光粼粼，风景宜人</Link>
+      <Link href="/client">微风吹皱了湖面，波光粼粼，风景宜人</Link>
       {session?.user ? (
         <span style={{ display: "flex", alignItems: "center" }}>
           {session?.user.name}

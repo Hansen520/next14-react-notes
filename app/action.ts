@@ -15,7 +15,7 @@ import dayjs from "dayjs";
 
 const schema = z.object({
   title: z.string(), // Define your form data validation here
-  content: z.string().min(1, "请填写内容").max(100000, "字数最多100"),
+  content: z.string().min(1, "请填写内容").max(10000, "字数最多10000"),
 });
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
@@ -39,14 +39,14 @@ export async function saveNote(prevState: string, formData: FormData) {
 
   if (noteId) {
     updateNote(noteId, JSON.stringify(data)); // Update existing note
-    revalidatePath("/", "layout"); // Revalidate the home page cache
-    // redirect(`/note/${noteId}`);
+    revalidatePath("/", "layout"); // 允许你按需清除特定路径的 缓存数据。
+    redirect(`/note/${noteId}`);
   } else {
     const res = await addNote(JSON.stringify(data));
     revalidatePath("/", "layout"); // Revalidate the home page cache
-    // redirect(`/note/${res}`);
+    redirect(`/note/${res}`);
   }
-  return { message: `添加成功!` };
+  // return { message: `添加成功!` };
 }
 
 export async function deleteNote(prevState: string, formData: FormData) {
@@ -88,7 +88,6 @@ export async function importFile(formData: FormData) {
     const uniqueFilename = `${filename}-${uniqueSuffix}.${mime.getExtension(file.type)}`;
     
     await writeFile(`${uploadDir}/${uniqueFilename}`, buffer);
-    console.log(uniqueSuffix, mime.getExtension(file.type), 91);
     // 调用接口，写入数据库
     const res = await addNote(JSON.stringify({
       title: filename,
@@ -101,6 +100,6 @@ export async function importFile(formData: FormData) {
     return { fileUrl: `${relativeUploadDir}/${uniqueFilename}`, uid: res }
   } catch(e) {
     console.error(e);
-    return { error: "Failed to write file." }
+    return { error: "未能在服务端写入文件" }
   }
 }

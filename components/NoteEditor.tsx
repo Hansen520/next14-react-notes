@@ -43,16 +43,6 @@ export default function NoteEditor({
         <div className="note-editor-menu" role="menubar">
           {/* 通过这边的name获取表单的信息 */}
           <input type="hidden" name="noteId" value={noteId} />
-          {/* <button className="note-editor-done" disabled={pending} type="submit" formAction={saveNote} role="menuitem">
-            <img src="/checkmark.svg" width="14px" height="10px" alt="" role="presentation" />
-            Done
-          </button>
-          {!isDraft && (
-            <button className="note-editor-delete" disabled={pending} formAction={deleteNote} role="menuitem">
-              <img src="/cross.svg" width="10px" height="10px" alt="" role="presentation" />
-              Delete
-            </button>
-          )} */}
           <SaveButton formAction={saveFormAction} />
           <DeleteButton isDraft={isDraft} formAction={delFormAction} />
         </div>
@@ -79,7 +69,7 @@ export default function NoteEditor({
       </form>
       <div className="note-editor-preview">
         <div className="label label--preview" role="status">
-          preview
+          笔记预览
         </div>
         <h1 className="note-title">{title}</h1>
         <NotePreview>{body}</NotePreview>

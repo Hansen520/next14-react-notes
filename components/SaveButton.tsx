@@ -22,7 +22,7 @@ export default function EditButton({ formAction }: { formAction: any }) {
         alt=""
         role="presentation"
       />
-      {pending ? '保存' : '点击创建'}
+      {pending ? '保存' : '完成'}
     </button>
   );
 }
