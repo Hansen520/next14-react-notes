@@ -13,7 +13,7 @@ function SignIn({ provider, ...props }: { provider?: any }) {
         await signIn(provider);
       }}
     >
-      <button {...props}>Sign In</button>
+      <button style={{ border: 'none', cursor: 'pointer' }} {...props}>Sign In</button>
     </form>
   );
 }
@@ -26,7 +26,7 @@ function SignOut(props: any) {
         await signOut();
       }}
     >
-      <button {...props}>Sign Out</button>
+      <button style={{ border: 'none', cursor: 'pointer' }} {...props}>Sign Out</button>
     </form>
   );
 }
@@ -35,15 +35,15 @@ export default async function Header() {
   const session = await auth();
   console.log(session, 35);
   return (
-    <header style={{ display: "flex", justifyContent: "space-around" }}>
-      <Link href="/client">Client Side Component</Link>
+    <header style={{ display: "flex", justifyContent: "space-around", background: 'var(--gray-10)', height: '30px', borderBottom: '1px solid #e4e6eb' }}>
+      <Link href="/client">client component</Link>
       {session?.user ? (
         <span style={{ display: "flex", alignItems: "center" }}>
           {session?.user.name}
-          <SignOut />
+          <SignOut  />
         </span>
       ) : (
-        <SignIn />
+        <SignIn  />
       )}
     </header>
   );

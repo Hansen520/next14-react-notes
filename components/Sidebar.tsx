@@ -27,7 +27,7 @@ export default function Sidebar() {
           <SideSearchField />
           <EditButton noteId={null}>new</EditButton>
         </section>
-        <nav>
+        <nav className="sidebar-nav">
           {/* 骨架屏幕自己写的 */}
           <Suspense fallback={<NoteListSkeleton />}>
             <SidebarNoteList />
