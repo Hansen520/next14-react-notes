@@ -45,7 +45,7 @@ export default function SidebarSearchField() {
       </label>
       <input
         id="sidebar-search-input"
-        placeholder="search"
+        placeholder="请输入您要搜索的篇章"
         type="text"
         onChange={(e) => handleSearch(e.target.value)}
       />

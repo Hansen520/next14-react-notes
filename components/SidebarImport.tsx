@@ -38,7 +38,7 @@ export default function SidebarImport() {
   return (
     <div style={{ textAlign: "center" }}>
       <label htmlFor="file" style={{ cursor: "pointer" }}>
-        Import .md File
+        请快速导入以 .md 结尾的文件哦
       </label>
       <input
         type="file"

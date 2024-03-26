@@ -34,6 +34,7 @@ export default function EditSkeleton() {
             <div className="skeleton v-stack" style={{ height: '1.5em' }} />
             <div className="skeleton v-stack" style={{ height: '1.5em' }} />
             <div className="skeleton v-stack" style={{ height: '1.5em' }} />
+            
           </div>
         </div>
       </div>

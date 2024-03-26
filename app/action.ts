@@ -46,7 +46,7 @@ export async function saveNote(prevState: string, formData: FormData) {
     revalidatePath("/", "layout"); // Revalidate the home page cache
     // redirect(`/note/${res}`);
   }
-  return { message: `Add Success!` };
+  return { message: `添加成功!` };
 }
 
 export async function deleteNote(prevState: string, formData: FormData) {
@@ -62,7 +62,7 @@ export async function importFile(formData: FormData) {
 
   // Is Empty
   if (!file) {
-    return { error: "File is required." };
+    return { error: "当前文件为空，请重试！" };
   }
 
   // 写入文件
@@ -77,7 +77,7 @@ export async function importFile(formData: FormData) {
       await mkdir(uploadDir, { recursive: true });
     } else {
       console.error(e);
-      return { error: "Failed to create directory." };
+      return { error: "未能创建目录" };
     }
   }
 

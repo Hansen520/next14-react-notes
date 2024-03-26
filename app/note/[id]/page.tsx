@@ -16,7 +16,7 @@ export default async function Page({ params }: { params: { id: string } }) {
   if (note == null) {
     return (
       <div className="note--empty-state">
-        <span className="note-text--empty-state">从左边视图中选择一份笔记</span>
+        <span className="note-text--empty-state">欢迎，请从左边视图中选择一份笔记查阅</span>
       </div>
     );
   }

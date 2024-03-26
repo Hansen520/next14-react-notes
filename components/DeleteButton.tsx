@@ -10,7 +10,7 @@ export default function DeleteButton({ isDraft, formAction }: { isDraft: boolean
     !isDraft && (
       <button className="note-editor-delete" disabled={pending} formAction={formAction} role="menuitem">
         <img src="/cross.svg" width="10px" height="10px" alt="" role="presentation" />
-        Delete
+        删除
       </button>
     )
   );
