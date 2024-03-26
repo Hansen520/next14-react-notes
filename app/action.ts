@@ -12,6 +12,7 @@ import { stat, mkdir, writeFile } from "fs/promises";
 import mime from "mime";
 import { join } from "path";
 import dayjs from "dayjs";
+import * as iconv from 'iconv-lite';
 
 const schema = z.object({
   title: z.string(), // Define your form data validation here
@@ -25,7 +26,7 @@ export async function saveNote(prevState: string, formData: FormData) {
   const data = {
     title: formData.get("title"),
     content: formData.get("body"),
-    updateTime: new Date(),
+    updateTime: dayjs().format('YYYY-MM-DD HH:MM:ss'),
   };
 
   // 校验数据
@@ -59,7 +60,6 @@ export async function deleteNote(prevState: string, formData: FormData) {
 /* 导入文件操作 */
 export async function importFile(formData: FormData) {
   const file = formData.get("file") as File;
-
   // Is Empty
   if (!file) {
     return { error: "当前文件为空，请重试！" };
@@ -85,13 +85,14 @@ export async function importFile(formData: FormData) {
     // 写入文件
     const uniqueSuffix = `${Math.random().toString(36).slice(-6)}`;
     const filename = file.name.replace(/\.[^/.]+$/, "");
-    const uniqueFilename = `${filename}-${uniqueSuffix}.${mime.getExtension(file.type)}`;
-    
+    const _decodeFilename = iconv.decode(filename as any, 'utf-8');
+    const uniqueFilename = `${_decodeFilename}-${uniqueSuffix}.${mime.getExtension(iconv.decode(file.type as any, 'utf-8'))}`;
     await writeFile(`${uploadDir}/${uniqueFilename}`, buffer);
     // 调用接口，写入数据库
     const res = await addNote(JSON.stringify({
-      title: filename,
-      content: buffer.toString('utf-8')
+      title: _decodeFilename,
+      content: buffer.toString('utf-8'),
+      updateTime: dayjs().format('YYYY-MM-DD HH:MM:ss'),
     }))
 
     // 清除缓存

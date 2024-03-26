@@ -19,10 +19,8 @@ export default function SidebarImport() {
       return;
     }
     const file = fileInput.files[0];
-
     const formData = new FormData();
     formData.append("file", file);
-
     try {
       const data = await importFile(formData);
       router.push(`/note/${data.uid}`);

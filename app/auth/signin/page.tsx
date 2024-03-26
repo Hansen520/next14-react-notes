@@ -6,7 +6,6 @@ export default function SignIn() {
     (async () => {
       const response = await fetch("http://localhost:3000/api/auth/csrf");
       const { csrfToken } = await response.json();
-      console.log(csrfToken, 17);
       setCsrfToken(csrfToken);
     })();
   }, []);

@@ -49,9 +49,9 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   callbacks: {
     authorized({ request, auth }) {
       const { pathname } = request.nextUrl;
+      console.log(pathname, 52);
       if (pathname.startsWith("/note/edit")) return !!auth;
       return true;
     },
-  },
-  trustHost: true
+  }
 });

@@ -20,7 +20,7 @@ export default function Note({
         <h1 className="note-title">{title}</h1>
         <div className="note-menu" role="menubar">
           <small className="note-updated-at" role="status">
-            更新于 {dayjs(updateTime).format("YYYY-MM-DD hh:mm:ss")}
+            更新于 {dayjs(updateTime).format("YYYY-MM-DD HH:MM:ss")}
           </small>
           <EditButton noteId={noteId}>编辑</EditButton>
         </div>

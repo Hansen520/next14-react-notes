@@ -1,10 +1,13 @@
 /*
  * @Date: 2024-01-24 18:01:39
  * @Description: description
- */
-{
+ */{
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -22,11 +25,28 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"],
-      "@/actions": ["./app/action.ts"],
-      "auth": ["./auth"]
+      "@/*": [
+        "./*"
+      ],
+      "@/actions": [
+        "./app/action.ts"
+      ],
+      "auth": [
+        "./auth"
+      ]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "lib/redis.ts", "app/[locale]/api/auth/[...nextauth]/route.tszx", "../../project/下载的源码/next-react-notes-demo/app/error.tsx"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "lib/redis.ts",
+    "app/[locale]/api/auth/[...nextauth]/route.tszx",
+    "../../project/下载的源码/next-react-notes-demo/app/error.tsx",
+    "dist/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
